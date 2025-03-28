@@ -1,0 +1,36 @@
+{
+    "pizzas": [
+      {
+        "id": 1,
+        "name": "Margarita",
+        "size": "Medium",
+        "ingredients": ["Cheese", "onion", "tomato pure"],
+        "price": 12,
+        "imagePath": "../assets/menu/pizzas/margarita.png"
+      },
+      {
+        "id": 2,
+        "name": "Classic Pepperoni",
+        "size": "Medium",
+        "ingredients": ["Cheese", "hungarian pepper", "panier", "capsicum", "onion"],
+        "price": 12,
+        "imagePath": "../assets/menu/pizzas/pepperoni.png"
+      },
+      {
+        "id": 3,
+        "name": "Pollo",
+        "size": "Medium",
+        "ingredients": ["Cheese", "onion", "tomato pure"],
+        "price": 12,
+        "imagePath": "../assets/menu/pizzas/pollo.png"
+      },
+      {
+        "id": 4,
+        "name": "Vegeteriana",
+        "size": "Medium",
+        "ingredients": ["Cheese", "onion", "tomato pure"],
+        "price": 12,
+        "imagePath": "../assets/menu/pizzas/vegetariana.png"
+      }
+    ]
+  }

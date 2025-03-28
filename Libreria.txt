@@ -1,0 +1,4 @@
+npm install @react-navigation/native @react-navigation/stack
+npm i react-native-vector-icons
+npm install @react-navigation/native @react-navigation/bottom-tabs react-native-screens react-native-safe-area-context
+
