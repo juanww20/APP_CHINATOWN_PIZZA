@@ -27,7 +27,6 @@
       {
         "id": 4,
         "name": "Vegeteriana",
-        "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
         "price": 12,
         "imageName": "vegetariana"
