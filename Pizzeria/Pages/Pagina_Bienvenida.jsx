@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable,StyleSheet, Image } from 'react-native';
+import { View, Text, Pressable,StyleSheet, Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logo from '../assets/logo.png'
 const Pagina_Bienvenida = () => {
@@ -11,15 +11,13 @@ const Pagina_Bienvenida = () => {
 
   return (
     <View style={styles.contenedor}>
-      <Text style={styles.letras_espanol}>Bienvenidos!</Text>
-      <Text style={styles.letras_espanol}>¡Callejera, sabrosa y auténtica pizza! 🍕！</Text>
+      <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
+      <Text style={styles.letras_espanol}>¡Callejera, sabrosa y auténtica pizza! 🍕</Text>
       <Image source={logo} style={styles.imagen_logo}></Image>
-      <Text style={styles.letras}>欢迎光临！</Text>
-      <Text style={styles.letras}>特别是可爱聪明的Maria老师!</Text>
-
       <Pressable style={styles.boton} onPress={Entrar_menu}>
-        <Text>¡Comprar!</Text>
+        <Text style={styles.letras_blanco}>Ver Menú</Text>
       </Pressable>
+      <Text style={styles.letras}>欢迎光临! 特别是可爱聪明的Maria老师!</Text>
     </View>
   );
 };
@@ -31,29 +29,38 @@ const styles = StyleSheet.create({
     flex: 1, 
     justifyContent: 'center', 
     alignItems: 'center',
-    backgroundColor:'black',
+    backgroundColor:'#1A1A1A',
   },
   letras:{
-    fontSize: 24, 
+    fontSize: 16, 
     marginBottom: 20,
-    color:'white'
+    color:'#F5F5F5'
   },
   letras_espanol:{
-    fontSize:18,
-    marginBottom: 10,
-    color:'white'
+    fontSize:30,
+    marginBottom: 40,
+    color:'#F5F5F5',
+    fontWeight:'bold',
+    width:'90%',
   },
   boton:{
-    width:150,
-    height:30,
+    width:'90%',
+    height:60,
     alignItems:'center',
     justifyContent:'center',
-    borderRadius:20,
-    backgroundColor:'orange',
+    borderRadius:8,
+    backgroundColor:'#FF3B3B',
+    marginBottom: 5,
   },
   imagen_logo:{
-    width:300,
-    height:250,
-  }
+    width:350,
+    height:300,
+    marginBottom: 25,
+  },
+  letras_blanco:{
+    color:'#F5F5F5',
+    fontSize:15,
+    fontWeight:'bold',
+  },
 })
 
