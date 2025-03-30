@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import InitialHome from "./Pages/home";
 import Page_Seleccion_sesion from "./Pages/Page_Seleccion_sesion";
 import Carrito from "./Pages/Carrito"
-import Menu_general from "./Pages/menu";
+import Menu_general from "./Pages/Menu_general";
 import pizza_icono from './assets/logo.png'
 import Pizza_ejemplo from './Pages/Pizza_ejemplo';
 import BillScreen from './Pages/Factura';

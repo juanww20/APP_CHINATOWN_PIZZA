@@ -1,6 +1,15 @@
 
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { pizzaImages } from '../data/map';
+
+function importAll(r) {
+    let images = {};
+    r.keys().forEach((key) => (images[key] = r(key)));
+    return images;
+}
+
+const images = importAll(require.context('./assets/menu/pizzas/', false, /\.(png|jpe?g|svg)$/));
 
 export function MenuSectionButton({imagen, texto, id, isSelected, onSelect}) {
 
@@ -17,23 +26,10 @@ export function MenuSectionButton({imagen, texto, id, isSelected, onSelect}) {
     );
 }
 
-export function MenuHeader(){
-    return(
-        <View style={styles.menuHeaderContainer}>
-            <Pressable style={styles.buttonHeader}>
-                <Image source={require('../assets/menu-button.png')} style={styles.menubuttonimage}></Image>
-            </Pressable>
-            <Pressable style={styles.buttonHeader}>
-                <Text>{'Cart ▼'}</Text>
-            </Pressable>
-        </View>
-    )
-}
-
 export function MenuProduct({ item }) {
     return (
         <View style={styles.productContainer}>
-            <Image source={{ uri: item.imagePath }} style={styles.productImage} />
+            <Image source={pizzaImages[item.imageName]} style={styles.productImage} />
             <View style={styles.productDetails}>
                 <Text style={styles.productName}>{item.name}</Text>
                 <Text style={styles.productIngredients}>
@@ -74,26 +70,6 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 500,
         color: '#F5F5F5',
-    },
-
-    menuHeaderContainer:{
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'space-around',
-    },
-
-    buttonHeader:{
-        width: 50,
-        height: 20,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    menubuttonimage:{
-        width: 25,
-        height: 25,
     },
     productContainer: {
         width: 350,

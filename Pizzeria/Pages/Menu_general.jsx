@@ -7,9 +7,10 @@ import postres from '../assets/postres.png'
 import adicionales from '../assets/adicionales.png'
 import {MenuSectionButton, MenuProduct} from '../components/menuComponents'
 import datos from '../data/menuData.json'
+import { CasualButton } from '../components/generals'
 
 
-export default function Menu_general() {
+export default function Menu_general({navigation}) {
         const [selectedId, setSelectedId] = React.useState(0);
 
         const toogleSelection = (id) => {
@@ -26,8 +27,9 @@ export default function Menu_general() {
         return (
             <View style={styles.contenedor}>
                 <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
+
                 <ScrollView horizontal={true}
-                    showsHorizontalScrollIndicator={false} style={{ padding: 15, width:'100%' }}>
+                    showsHorizontalScrollIndicator={false} style={{width:'100%',marginTop: 20,maxHeight: '18%'}}>
                     <MenuSectionButton imagen={pizzas} texto={'Pizzas'} id={0} isSelected={selectedId===0} onSelect={toogleSelection}/>
                     <MenuSectionButton imagen={bebidas} texto={'Bebidas'} id={1} isSelected={selectedId===1} onSelect={toogleSelection}/>
                     <MenuSectionButton imagen={ensaladas} texto={'Ensaladas'} id={2} isSelected={selectedId===2} onSelect={toogleSelection}/>
@@ -39,7 +41,10 @@ export default function Menu_general() {
                     data={data}
                     renderItem={({ item }) => <MenuProduct item={item} />}
                     keyExtractor={item => item.id}
+                    style={{height: '70%'}}
                 />
+
+                <CasualButton texto="Ver Orden" styles={{height: '10%'}}></CasualButton>
             </View>
         )
     }
@@ -47,9 +52,12 @@ export default function Menu_general() {
 
 const styles = StyleSheet.create({
     contenedor: {
-        marginTop: 30,
+        flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#1A1A1A',
+        justifyContent: 'flex-start',
     },
 
 })

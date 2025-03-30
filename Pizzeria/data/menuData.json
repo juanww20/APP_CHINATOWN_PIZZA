@@ -6,7 +6,7 @@
         "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
         "price": 12,
-        "imagePath": "../assets/menu/pizzas/margarita.png"
+        "imageName": "margarita"
       },
       {
         "id": 2,
@@ -14,7 +14,7 @@
         "size": "Medium",
         "ingredients": ["Cheese", "hungarian pepper", "panier", "capsicum", "onion"],
         "price": 12,
-        "imagePath": "../assets/menu/pizzas/pepperoni.png"
+        "imageName": "pepperoni"
       },
       {
         "id": 3,
@@ -22,7 +22,7 @@
         "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
         "price": 12,
-        "imagePath": "../assets/menu/pizzas/pollo.png"
+        "imageName": "pollo"
       },
       {
         "id": 4,
@@ -30,7 +30,7 @@
         "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
         "price": 12,
-        "imagePath": "../assets/menu/pizzas/vegetariana.png"
+        "imageName": "vegetariana"
       }
     ]
   }
