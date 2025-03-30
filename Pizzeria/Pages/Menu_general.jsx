@@ -6,7 +6,7 @@ import ensaladas from '../assets/ensaladas.png'
 import postres from '../assets/postres.png'
 import adicionales from '../assets/adicionales.png'
 import {MenuSectionButton, MenuProduct} from '../components/menuComponents'
-import datos from '../data/menuData.json'
+import datos from '../data/pizzas.json'
 import { CasualButton } from '../components/generals'
 
 
@@ -42,6 +42,7 @@ export default function Menu_general({navigation}) {
                     renderItem={({ item }) => <MenuProduct item={item} />}
                     keyExtractor={item => item.id}
                     style={{height: '70%'}}
+                    showsVerticalScrollIndicator={false}
                 />
 
                 <CasualButton texto="Ver Orden" styles={{height: '10%'}}></CasualButton>

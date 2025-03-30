@@ -32,7 +32,7 @@ export function MenuProduct({ item }) {
             <Image source={pizzaImages[item.imageName]} style={styles.productImage} />
             <View style={styles.productDetails}>
                 <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.productIngredients}>
+                <Text style={styles.productIngredients} numberOfLines={2} ellipsizeMode='tail'>
                     {item.ingredients.join(', ')}
                 </Text>
                 <Text style={styles.productPrice}>${item.price}</Text>
