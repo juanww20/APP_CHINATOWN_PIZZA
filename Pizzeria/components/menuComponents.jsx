@@ -3,14 +3,6 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 import {Productimages} from '../data/map.js';
 
-function importAll(r) {
-    let images = {};
-    r.keys().forEach((key) => (images[key] = r(key)));
-    return images;
-}
-
-const images = importAll(require.context('./assets/menu/pizzas/', false, /\.(png|jpe?g|svg)$/));
-
 export function MenuSectionButton({imagen, texto, id, isSelected, onSelect}) {
 
     return(
