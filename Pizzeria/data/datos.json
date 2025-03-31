@@ -10,7 +10,7 @@
         {
             "id": 2,
             "name": "Classic Pepperoni",
-            "ingredients": "Queso, pimienta húngara, pimentón, cebolla, albahaca, puré de tomate, pepperoni",
+            "ingredients": "Queso, pimienta húngara, pimentón, cebolla, pepperoni",
             "price": 12,
             "imageName": "pepperoni"
         },
