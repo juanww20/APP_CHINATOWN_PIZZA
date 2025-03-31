@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, Pressable, Modal} from 'react-native';
 import {Productimages} from '../data/map.js';
 
 export function MenuSectionButton({imagen, texto, id, isSelected, onSelect}) {
-
     return(
         <Pressable onPress={() => onSelect(id)}>
             <View style={[
