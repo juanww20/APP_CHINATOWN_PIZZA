@@ -12,28 +12,28 @@
             "name":"7up",
             "ingredients":"Refresco 2lt",
             "price":3,
-            "imageName":"7up"
+            "imageName":"sevenup"
         },
         {
             "id": 3,
             "name":"Fanta Naranja",
             "ingredients":"Refresco 2lt",
             "price":3,
-            "imageName":"fanta-naranja"
+            "imageName":"fantanaranja"
         },
         {
             "id": 4,
             "name":"Fanta Uva",
             "ingredients":"Refresco 2lt",
             "price":3,
-            "imageName":"fanta-uva"
+            "imageName":"fantauva"
         },
         {
             "id": 5,
             "name":"Golden Kolita",
             "ingredients":"Refresco 2lt",
             "price":3,
-            "imageName":"golden-kolita"
+            "imageName":"goldenkolita"
         },
         {
             "id": 6,

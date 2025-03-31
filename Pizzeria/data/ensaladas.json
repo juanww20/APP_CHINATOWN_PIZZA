@@ -1,0 +1,11 @@
+{
+    "ensaladas":[
+        {
+            "id": 1,
+            "name": "Ensalada César",
+            "ingredients": "Lechuga, pollo, aderezo César, crutones",
+            "price": 4,
+            "imageName": "ensaladacesar"
+        }
+    ]
+}
