@@ -32,8 +32,8 @@ export function MenuProduct({ item }) {
             <Image source={pizzaImages[item.imageName]} style={styles.productImage} />
             <View style={styles.productDetails}>
                 <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.productIngredients} numberOfLines={2} ellipsizeMode='tail'>
-                    {item.ingredients.join(', ')}
+                <Text style={styles.productIngredients}>
+                    {Array.isArray(item.ingredients) ? item.ingredients.join(', ') : item.ingredients}
                 </Text>
                 <Text style={styles.productPrice}>${Array.isArray(item.price) ? item.price[1] : item.price}</Text>
             </View>

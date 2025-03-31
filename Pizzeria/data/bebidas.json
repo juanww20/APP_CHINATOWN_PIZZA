@@ -1,0 +1,46 @@
+{
+    "bebidas":[
+        {
+            "id": 1,
+            "name": "Coca-Cola",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "cocacola"
+        },
+        {
+            "id": 2,
+            "name":"7up",
+            "ingredients":"Refresco 2lt",
+            "price":3,
+            "imageName":"7up"
+        },
+        {
+            "id": 3,
+            "name":"Fanta Naranja",
+            "ingredients":"Refresco 2lt",
+            "price":3,
+            "imageName":"fanta-naranja"
+        },
+        {
+            "id": 4,
+            "name":"Fanta Uva",
+            "ingredients":"Refresco 2lt",
+            "price":3,
+            "imageName":"fanta-uva"
+        },
+        {
+            "id": 5,
+            "name":"Golden Kolita",
+            "ingredients":"Refresco 2lt",
+            "price":3,
+            "imageName":"golden-kolita"
+        },
+        {
+            "id": 6,
+            "name":"Pepsi",
+            "ingredients":"Refresco 2lt",
+            "price":3,
+            "imageName":"pepsi"
+        }
+    ]
+}
