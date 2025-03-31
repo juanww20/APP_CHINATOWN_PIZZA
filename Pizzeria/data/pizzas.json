@@ -3,32 +3,29 @@
       {
         "id": 1,
         "name": "Margarita",
-        "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
-        "price": 12,
+        "price": [8,10,12],
         "imageName": "margarita"
       },
       {
         "id": 2,
         "name": "Classic Pepperoni",
-        "size": "Medium",
         "ingredients": ["Cheese", "hungarian pepper", "panier", "capsicum", "onion"],
-        "price": 12,
+        "price": [10,12,14],
         "imageName": "pepperoni"
       },
       {
         "id": 3,
         "name": "Pollo",
-        "size": "Medium",
         "ingredients": ["Cheese", "onion", "tomato pure"],
-        "price": 12,
+        "price": [12,14,16],
         "imageName": "pollo"
       },
       {
         "id": 4,
         "name": "Vegeteriana",
         "ingredients": ["Cheese", "onion", "tomato pure"],
-        "price": 12,
+        "price": [12,14,16],
         "imageName": "vegetariana"
       }
     ]

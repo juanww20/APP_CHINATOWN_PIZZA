@@ -35,7 +35,7 @@ export function MenuProduct({ item }) {
                 <Text style={styles.productIngredients} numberOfLines={2} ellipsizeMode='tail'>
                     {item.ingredients.join(', ')}
                 </Text>
-                <Text style={styles.productPrice}>${item.price}</Text>
+                <Text style={styles.productPrice}>${Array.isArray(item.price) ? item.price[1] : item.price}</Text>
             </View>
             <Pressable style={styles.addButton}>
                 <Text style={styles.addButtonText}>+</Text>
