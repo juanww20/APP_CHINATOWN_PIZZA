@@ -1,0 +1,110 @@
+{
+    "pizzas": [
+        {
+            "id": 1,
+            "name": "Margarita",
+            "ingredients": "Queso, cebolla, puré de tomate",
+            "price": 10,
+            "imageName": "margarita"
+        },
+        {
+            "id": 2,
+            "name": "Classic Pepperoni",
+            "ingredients": "Queso, pimienta húngara, pimentón, cebolla, albahaca, puré de tomate, pepperoni",
+            "price": 12,
+            "imageName": "pepperoni"
+        },
+        {
+            "id": 3,
+            "name": "Pollo",
+            "ingredients": "Queso, champiñones, aceitunas, pollo, tomate",
+            "price": 14,
+            "imageName": "pollo"
+        },
+        {
+            "id": 4,
+            "name": "Vegeteriana",
+            "ingredients": "Queso, cebolla, puré de tomate, aceitunas, pimentón, champiñones",
+            "price": 14,
+            "imageName": "vegetariana"
+        }
+    ],
+    "bebidas": [
+        {
+            "id": 5,
+            "name": "Coca-Cola",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "cocacola"
+        },
+        {
+            "id": 6,
+            "name": "7up",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "sevenup"
+        },
+        {
+            "id": 7,
+            "name": "Fanta Naranja",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "fantanaranja"
+        },
+        {
+            "id": 8,
+            "name": "Fanta Uva",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "fantauva"
+        },
+        {
+            "id": 9,
+            "name": "Golden Kolita",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "goldenkolita"
+        },
+        {
+            "id": 10,
+            "name": "Pepsi",
+            "ingredients": "Refresco 2lt",
+            "price": 3,
+            "imageName": "pepsi"
+        }
+    ],
+    "ensaladas": [
+        {
+            "id": 11,
+            "name": "Ensalada César",
+            "ingredients": "Lechuga, pollo, aderezo César, crutones",
+            "price": 4,
+            "imageName": "ensaladacesar"
+        }
+    ],
+    "postres": [
+        {
+            "id": 12,
+            "name": "Cheesecake de Fresa",
+            "ingredients": "Galleta, queso crema, fresa, gelatina",
+            "price": 4,
+            "imageName": "cheesecakefresa"
+        }
+    ],
+    "adicionales": [
+        {
+            "id": 13,
+            "name": "Papas fritas",
+            "ingredients": "Papas a la francesa fritas con sal",
+            "price": 2,
+            "imageName": "papasfritas"
+        },
+        {
+            "id": 14,
+            "name": "Tequeños",
+            "ingredients": "Masa de harina de trigo rellena de queso",
+            "price": 2,
+            "imageName": "tequenos"
+        }
+    ]
+}

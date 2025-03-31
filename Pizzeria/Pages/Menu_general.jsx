@@ -6,23 +6,43 @@ import ensaladas from '../assets/ensaladas.png'
 import postres from '../assets/postres.png'
 import adicionales from '../assets/adicionales.png'
 import {MenuSectionButton, MenuProduct} from '../components/menuComponents'
-import datos from '../data/pizzas.json'
 import { CasualButton } from '../components/generals'
+
+//Importando datos
+import datos from '../data/datos.json'
 
 
 export default function Menu_general({navigation}) {
-        const [selectedId, setSelectedId] = React.useState(0);
-
-        const toogleSelection = (id) => {
-            if(selectedId === id) return;
-            else setSelectedId(id)
-        }
 
         const [data, setData] = React.useState([]);
 
         React.useEffect(() => {
             setData(datos.pizzas); // Asigna los datos del JSON al estado
         }, []);
+
+        const [selectedId, setSelectedId] = React.useState(0);
+
+        const toogleSelection = (id) => {
+            if(selectedId === id) return;
+            else {
+                if (id == 0) {
+                    setSelectedId(id);
+                    setData(datos.pizzas); // Limpia los datos actuales
+                } else if (id == 1) {
+                    setSelectedId(id);
+                    setData(datos.bebidas); // Limpia los datos actuales
+                } else if (id == 2) {
+                    setSelectedId(id);
+                    setData(datos.ensaladas); // Limpia los datos actuales
+                } else if (id == 3) {
+                    setSelectedId(id);
+                    setData(datos.postres); // Limpia los datos actuales
+                } else if (id == 4) {
+                    setSelectedId(id);
+                    setData(datos.adicionales); // Limpia los datos actuales
+                }
+            }
+        }
 
         return (
             <View style={styles.contenedor}>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import { pizzaImages } from '../data/map';
+import {Productimages} from '../data/map.js';
 
 function importAll(r) {
     let images = {};
@@ -29,10 +29,14 @@ export function MenuSectionButton({imagen, texto, id, isSelected, onSelect}) {
 export function MenuProduct({ item }) {
     return (
         <View style={styles.productContainer}>
-            <Image source={pizzaImages[item.imageName]} style={styles.productImage} />
+            <Image source={Productimages[item.imageName]} style={styles.productImage} />
             <View style={styles.productDetails}>
                 <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.productIngredients}>
+                <Text 
+                    style={styles.productIngredients}
+                    numberOfLines={2}  // Limita a 2 líneas
+                    ellipsizeMode="tail"  // Agrega "..." al final si el texto se corta
+                >
                     {Array.isArray(item.ingredients) ? item.ingredients.join(', ') : item.ingredients}
                 </Text>
                 <Text style={styles.productPrice}>${Array.isArray(item.price) ? item.price[1] : item.price}</Text>

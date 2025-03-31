@@ -17,31 +17,19 @@ import ensaladacesar from '../assets/menu/ensaladas/ensalada-cesar.png';
 
 import cheesecakefresa from '../assets/menu/postres/cheesecake-fresa.png';
 
-export const pizzaImages = {
-    margarita: margarita,
-    pepperoni: pepperoni,
-    pollo: pollo,
-    vegetariana: vegetariana,
-};
-
-export const adicionalesImages = {
-    papasfritas: papasfritas,
-    tequenos: tequenos,
-};
-
-export const bebidaImages = {
-    sevenup: sevenup,
-    cocacola: cocacola,
-    fantanaranja: fantanaranja,
-    fantauva: fantauva,
-    goldenkolita: goldenkolita,
-    pepsi: pepsi,
-};
-
-export const ensaladaImages = {
-    ensaladacesar: ensaladacesar,
-};
-
-export const postreImages = {
-    cheesecakefresa: cheesecakefresa,
+export const Productimages = {
+        margarita: margarita,
+        pepperoni: pepperoni,
+        pollo: pollo,
+        vegetariana: vegetariana,
+        papasfritas: papasfritas,
+        tequenos: tequenos,
+        sevenup: sevenup,
+        cocacola: cocacola,
+        fantanaranja: fantanaranja,
+        fantauva: fantauva,
+        goldenkolita: goldenkolita,
+        pepsi: pepsi,
+        ensaladacesar: ensaladacesar,
+        cheesecakefresa: cheesecakefresa,
 };
