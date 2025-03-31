@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, Modal} from 'react-native';
 
-export function CasualButton({ texto }) {
+export function CasualButton({ texto,  func }) {
     return(
-        <Pressable onPress={() => {}} style={[styles.boton]}>
+        <Pressable onPress={func} style={[styles.boton]}>
             <Text style={{color:'white',fontSize:15,fontWeight:'bold'}}>{texto}</Text>
         </Pressable>
     );
