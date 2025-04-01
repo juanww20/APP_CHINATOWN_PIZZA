@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Button, StyleSheet, Pressable} from 'react-native';
+import { View, Text, FlatList, Button, StyleSheet, Pressable, StatusBar} from 'react-native';
 import { useNavigation, useRoute} from '@react-navigation/native';
 
 const Carrito = ({ navigation, cart, setCart }) => {
@@ -13,7 +13,7 @@ const Carrito = ({ navigation, cart, setCart }) => {
 
   const Eliminar = (item) => {
     const newCart = { ...cart };
-    delete newCart[item.pizza.id];
+    delete newCart[item.id];
     setCart(newCart);
   };
 
@@ -26,14 +26,15 @@ const Carrito = ({ navigation, cart, setCart }) => {
   };
 
   return (
-    <View style={{ flex: 1, marginTop:40, marginBottom:20}}>
-      <Text style={{fontSize:28}}>Lista de pedido (～￣▽￣)～</Text>
+    <View style={{ flex: 1,backgroundColor:'#1A1A1A'}}>
+      <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
+      <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center"}}>Lista de pedido (～￣▽￣)～</Text>
       <FlatList
         data={Object.values(cart)}
         renderItem={({ item }) => (
           <View style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
-            <Text>
-              {item.pizza?.name} x {item.quantity} - ${item.pizza?.price * item.quantity}
+            <Text style={{color:'#F5F5F5'}}>
+              {item.name} x {item.quantity} - ${item.price * item.quantity}
             </Text>
             <Pressable onPress={() => Eliminar(item)} style={styles.button_eliminar_dicha_producto}>
               <Text>Quitar</Text>
