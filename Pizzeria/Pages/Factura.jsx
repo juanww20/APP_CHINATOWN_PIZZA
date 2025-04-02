@@ -36,7 +36,7 @@ const BillScreen = () => {
         {Object.values(cart).map((item) => (
           <View key={item.id} style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
             <Text>
-              {item.name} x {item.quantity} - ${item.price * item.quantity}
+              {item.name} x{item.quantity} - ${item.price * item.quantity} (${item.price} c/u)
             </Text>
           </View>
         ))}

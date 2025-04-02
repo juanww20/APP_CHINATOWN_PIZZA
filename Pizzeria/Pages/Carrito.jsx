@@ -40,8 +40,8 @@ const Carrito = ({ navigation, cart, setCart }) => {
               source={Productimages[item.imageName]}
               style={{width: 50, height: 50, resizeMode: 'stretch'}}
               />
-            <Text style={{color:'#F5F5F5'}}>
-              {item.name} x{item.quantity} - ${item.price * item.quantity}
+            <Text style={{color:'#F5F5F5', fontSize: 12, width: '60%'}}>
+              {item.name} x{item.quantity} - ${item.price * item.quantity} (${item.price} c/u)
             </Text>
             <Pressable onPress={() => Eliminar(item)} style={styles.button_eliminar_dicha_producto}>
               <Image 
