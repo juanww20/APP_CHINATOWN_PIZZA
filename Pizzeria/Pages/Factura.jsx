@@ -26,7 +26,7 @@ const BillScreen = () => {
       }, 5000);
   };
 
-  const totalCost = Object.values(cart).reduce((acc, item) => acc + item.pizza.price * item.quantity, 0);
+  const totalCost = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <View style={{ flex: 1, justifyContent: 'space-between', marginBottom:20, marginTop:60}}>
@@ -34,9 +34,9 @@ const BillScreen = () => {
         <Text style={{ fontSize: 24, padding: 10 }}>Factura</Text>
         <Text>Factura ID: {billId}</Text>
         {Object.values(cart).map((item) => (
-          <View key={item.pizza.id} style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
+          <View key={item.id} style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
             <Text>
-              {item.pizza.name} x {item.quantity} - ${item.pizza.price * item.quantity}
+              {item.name} x {item.quantity} - ${item.price * item.quantity}
             </Text>
           </View>
         ))}

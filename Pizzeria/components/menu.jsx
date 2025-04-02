@@ -47,7 +47,7 @@ export function MenuProduct({ item, cart, setCart }) {
         // Oculta el modal después de 2 segundos
         setTimeout(() => {
             setModalVisible(false);
-        }, 1000);
+        }, 2000);
     };
 
     return (
@@ -65,12 +65,12 @@ export function MenuProduct({ item, cart, setCart }) {
                 </Text>
                 <Text style={styles.productPrice}>${Array.isArray(item.price) ? item.price[1] : item.price}</Text>
             </View>
-            <Pressable style={styles.addButton}>
-                <Text style={styles.addButtonText} onPress={() => AgregaParaPedido(item)}>+</Text>
+            <Pressable style={styles.addButton} onPress={() => AgregaParaPedido(item)}>
+                <Text style={styles.addButtonText}>+</Text>
             </Pressable>
         </Pressable>
         <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 10,
-        sizeMode: 'stretch',
+        sizeMode: 'contain',
     },
     texto:{
         fontSize: 12,
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
         width: 80,
         height: 80,
         borderRadius: 10,
+        resizeMode: 'stretch'
     },
     productDetails: {
         flex: 1,
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.5)'
+        backgroundColor: 'rgba(0, 0, 0, 0.75)'
     },
     modalView: {
         margin: 20,
