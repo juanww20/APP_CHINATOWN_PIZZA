@@ -3,12 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, Pressable, TextInput, 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Icon from 'react-native-vector-icons/Ionicons';
-import InitialHome from "./Pages/home";
-import Page_Seleccion_sesion from "./Pages/Page_Seleccion_sesion";
 import Carrito from "./Pages/Carrito"
 import Menu_general from "./Pages/menu";
-import pizza_icono from './assets/logo.png'
 import Pizza_ejemplo from './Pages/Pizza_ejemplo';
 import BillScreen from './Pages/Factura';
 import Pagina_Bienvenida from './Pages/Pagina_Bienvenida';
