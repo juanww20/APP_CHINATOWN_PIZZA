@@ -52,7 +52,8 @@ const Carrito = ({ navigation, cart, setCart }) => {
           </View>
         )}
         keyExtractor={(item, index) => index.toString()}
-        style={{paddingLeft:20, alignContent:'center', marginTop: 20}}
+        style={{ marginTop: 20, width:'100%'}}
+        contentContainerStyle={{ alignItems: 'center' }}
       />
       <Text style={{ padding: 10, fontSize: 20, color: '#F5F5F5', borderTopWidth: 1, borderTopColor:'#F5F5F5'}}>Total: ${totalCost}</Text>
       <View style={{ flexDirection: 'row', justifyContent: 'center', padding: 10, width: '50%', gap: 10}}>
@@ -72,7 +73,7 @@ export default Carrito;
 const styles = StyleSheet.create({
   boton:{
     width:'100%',
-    height:40,
+    height:50,
     backgroundColor:'#FF3B3B',
     justifyContent:'center',
     alignItems:'center',
