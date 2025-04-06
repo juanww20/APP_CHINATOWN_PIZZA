@@ -29,7 +29,7 @@ const BillScreen = () => {
   const totalCost = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'space-between', marginBottom:20, marginTop:60}}>
+    <View style={{ flex: 1, justifyContent: 'space-between', backgroundColor: 'red'}}>
       <View>
         <Text style={{ fontSize: 24, padding: 10 }}>Factura</Text>
         <Text>Factura ID: {billId}</Text>
