@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Linking, Platform, StatusBar} from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { getAndIncrementBillId } from '../Funcionalidad/billIdManager';
+import { getAndIncrementBillId } from '../functions/billIdManager';
 import {Factura, MetodoDePago} from '../components/factura';
 import { CasualButton } from '../components/generals';
 

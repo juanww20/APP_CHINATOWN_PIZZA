@@ -22,8 +22,8 @@ const Carrito = ({ navigation, cart, setCart }) => {
     setCart({});
   };
 
-  const Funcion_Pasar_Factura = () => {
-    navigation.navigate('Bill', { cart });
+  const Funcion_Pasar_Form = () => {
+    navigation.navigate('InfoCliente'); // <--- Quita { cart }, ya que lo pasas por props
   };
 
   const totalCost = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -60,7 +60,7 @@ const Carrito = ({ navigation, cart, setCart }) => {
         <Pressable onPress={Eliminar_todos} style={styles.boton}>
           <Text style={{color:'#F5F5F5'}}>Limpiar</Text>
         </Pressable>
-        <Pressable onPress={Funcion_Pasar_Factura} style={styles.boton}>
+        <Pressable onPress={Funcion_Pasar_Form} style={styles.boton}>
           <Text style={{color:'#F5F5F5'}}>Confirmar</Text>
         </Pressable>
       </View>
