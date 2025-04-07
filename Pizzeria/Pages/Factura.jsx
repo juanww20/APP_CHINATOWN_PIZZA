@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, Linking, Platform } from 'react-native';
+import { View, Text, Linking, Platform, StatusBar} from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAndIncrementBillId } from '../Funcionalidad/billIdManager';
 import {Factura, MetodoDePago} from '../components/factura';
@@ -57,7 +57,8 @@ const BillScreen = () => {
 
   return (
     <View style={{height: '100%', backgroundColor: '#1A1A1A', alignItems: 'center', justifyContent: 'space-between'}}>
-      <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center", fontWeight:"bold"}}>Facturación</Text>
+      <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
+      <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center", fontWeight:"bold", marginTop:10}}>Facturación</Text>
       <MetodoDePago></MetodoDePago>
       <Factura cost={totalCost} billId={billId} cart={cart}></Factura>
       <CasualButton texto="Pagar" onPress={sendWhatsApp}></CasualButton>
