@@ -47,7 +47,7 @@ export function MenuProduct({ item, cart, setCart }) {
         // Oculta el modal después de 2 segundos
         setTimeout(() => {
             setModalVisible(false);
-        }, 2000);
+        }, 750);
     };
 
     return (

@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, Button,Pressable } from 'react-native';
+import { View, Text, ScrollView, StyleSheet} from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown';
 
-export default function Factura({ func, cost }) {
+export function Factura({ cost, billId , cart}) {
     return (
-        <View style={{ flex: 1, justifyContent: 'space-between', backgroundColor: 'red' }}>
-            <View>
+        <View style={{ height: '50%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'space-between', width: '75%', borderRadius: 10}}>
+            <ScrollView style={{ backgroundColor: '#F5F5F5', width: '100%', borderRadius: 10}} contentContainerStyle={{ justifyContent: 'space-between' }}>
                 <Text style={{ fontSize: 24, padding: 10 }}>Factura</Text>
-                <Text>Factura ID: {billId}</Text>
+                <Text style={{paddingLeft: 7}}>ID: #{billId}</Text>
                 {Object.values(cart).map((item) => (
                     <View key={item.id} style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
                         <Text>
@@ -15,9 +16,90 @@ export default function Factura({ func, cost }) {
                     </View>
                 ))}
                 <Text style={{ padding: 10, fontSize: 20 }}>Total: ${cost}</Text>
-            </View>
-            <Button title="Pagar" onPress={func} style={{ padding: 10 }} />
+            </ScrollView>
         </View>
     );
 }
- 
+export function MetodoDePago({}){
+    const emojisWithIcons = [
+        {title: 'Pago Movil'},
+        {title: 'Efectivo'},
+      ];
+    return(
+    <SelectDropdown
+        data={emojisWithIcons}
+        onSelect={(selectedItem, index) => {
+          console.log(selectedItem, index);
+        }}
+        renderButton={(selectedItem, isOpened) => {
+          return (
+            <View style={styles.dropdownButtonStyle}>
+              {/* Removed the direct rendering of selectedItem */}
+              <Text style={styles.dropdownButtonTxtStyle}>
+                {(selectedItem && selectedItem.title) || 'Método de pago'}
+              </Text>
+            </View>
+          );
+        }}
+        renderItem={(item, index, isSelected) => {
+          return (
+            <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#1A1A1A'})}}>
+              <Text style={styles.dropdownItemTxtStyle}>{item.title}</Text>
+            </View>
+          );
+        }}
+        showsVerticalScrollIndicator={false}
+        dropdownStyle={styles.dropdownMenuStyle}
+      />
+    )
+}
+
+const styles = StyleSheet.create({
+    dropdownButtonStyle: {
+      width: 200,
+      height: 50,
+      backgroundColor: '#1f1f1f',
+      borderRadius: 12,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 12,
+      borderColor: '#FF3B3B',
+      borderWidth: 2,
+    },
+    dropdownButtonTxtStyle: {
+      flex: 1,
+      fontSize: 18,
+      fontWeight: '500',
+      color: '#F5F5F5',
+    },
+    dropdownButtonArrowStyle: {
+      fontSize: 28,
+    },
+    dropdownButtonIconStyle: {
+      fontSize: 28,
+      marginRight: 8,
+    },
+    dropdownMenuStyle: {
+      backgroundColor: '#1f1f1f',
+      borderRadius: 4,
+    },
+    dropdownItemStyle: {
+      width: '100%',
+      flexDirection: 'row',
+      paddingHorizontal: 12,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: 8,
+    },
+    dropdownItemTxtStyle: {
+      flex: 1,
+      fontSize: 18,
+      fontWeight: '500',
+      color: '#F5F5F5',
+    },
+    dropdownItemIconStyle: {
+      fontSize: 28,
+      marginRight: 8,
+    },
+  });
