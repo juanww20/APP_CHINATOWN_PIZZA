@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet} from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function Factura({ cost, billId , cart}) {
     return (
@@ -38,6 +39,7 @@ export function MetodoDePago({}){
               <Text style={styles.dropdownButtonTxtStyle}>
                 {(selectedItem && selectedItem.title) || 'Método de pago'}
               </Text>
+              <Icon name={isOpened ? 'chevron-up' : 'chevron-down'} style={styles.dropdownButtonArrowStyle} />
             </View>
           );
         }}
@@ -56,7 +58,7 @@ export function MetodoDePago({}){
 
 const styles = StyleSheet.create({
     dropdownButtonStyle: {
-      width: 200,
+      width: 250,
       height: 50,
       backgroundColor: '#1f1f1f',
       borderRadius: 12,
@@ -75,10 +77,7 @@ const styles = StyleSheet.create({
     },
     dropdownButtonArrowStyle: {
       fontSize: 28,
-    },
-    dropdownButtonIconStyle: {
-      fontSize: 28,
-      marginRight: 8,
+      color: '#F5F5F5',
     },
     dropdownMenuStyle: {
       backgroundColor: '#1f1f1f',
@@ -97,9 +96,5 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: '500',
       color: '#F5F5F5',
-    },
-    dropdownItemIconStyle: {
-      fontSize: 28,
-      marginRight: 8,
     },
   });
