@@ -1,9 +1,18 @@
 import React from "react";
 import { TextInput, StyleSheet} from "react-native";
 
-export function InputForm({placeholder}) {
+export function InputForm({placeholder, teclado, onChangeText, value}) {
     return (
-        <TextInput style={styles.input} placeholder={placeholder} placeholderTextColor='#bbb'/>
+        <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor='#bbb'
+        keyboardType= {teclado}
+        maxLength={teclado === 'numeric' ? 11 : 100}
+        onChangeText={onChangeText}
+        autoCapitalize={placeholder === 'Nombre' ? 'words' : 'none'}
+        value={value}
+        />
     );
 }
 

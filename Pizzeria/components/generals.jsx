@@ -3,35 +3,53 @@ import { View, Text, Image, StyleSheet, Pressable, Modal} from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export function CasualButton({ texto,  func }) {
-    return(
-        <Pressable onPress={func} style={[styles.boton]}>
-            <Text style={{color:'white',fontSize:15,fontWeight:'bold'}}>{texto}</Text>
-        </Pressable>
-    );
+export function CasualButton({ texto, func, disabled = false, estilo = {} }) {
+  return (
+    <Pressable 
+      onPress={func} 
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.boton,
+        estilo,
+        disabled && styles.disabledButton,
+        pressed && !disabled && styles.pressedButton
+      ]}
+      android_ripple={{ color: '#FFFFFF30' }} // Efecto ripple para Android
+    >
+      <Text style={{color:'white',fontSize:15,fontWeight:'bold'}}>{texto}</Text>
+    </Pressable>
+  );
 }
 
-export function Dropdown({data, placeholder}){
-    return(
-    <SelectDropdown
+export function Dropdown({data, placeholder, onSelect}){
+  return(
+    <View style={{ width: '90%', marginBottom: 10 }}>
+      <SelectDropdown
         data={data}
-        onSelect={(selectedItem, index) => {
-          console.log(selectedItem, index);
+        onSelect={(selectedItem) => {
+          if (onSelect) {
+            onSelect(selectedItem.title);
+          }
         }}
         renderButton={(selectedItem, isOpened) => {
           return (
             <View style={styles.dropdownButtonStyle}>
-              {/* Removed the direct rendering of selectedItem */}
               <Text style={styles.dropdownButtonTxtStyle}>
                 {(selectedItem && selectedItem.title) || placeholder}
               </Text>
-              <Icon name={isOpened ? 'chevron-up' : 'chevron-down'} style={styles.dropdownButtonArrowStyle} />
+              <Icon 
+                name={isOpened ? 'chevron-up' : 'chevron-down'} 
+                style={styles.dropdownButtonArrowStyle} 
+              />
             </View>
           );
         }}
         renderItem={(item, index, isSelected) => {
           return (
-            <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#1A1A1A'})}}>
+            <View style={{
+              ...styles.dropdownItemStyle,
+              ...(isSelected && { backgroundColor: '#1A1A1A' })
+            }}>
               <Text style={styles.dropdownItemTxtStyle}>{item.title}</Text>
             </View>
           );
@@ -39,7 +57,8 @@ export function Dropdown({data, placeholder}){
         showsVerticalScrollIndicator={false}
         dropdownStyle={styles.dropdownMenuStyle}
       />
-    )
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
