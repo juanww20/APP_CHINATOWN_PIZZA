@@ -1,5 +1,5 @@
 import { Text, View, ScrollView, StyleSheet, Image, FlatList, StatusBar} from 'react-native'
-import React, { Component } from 'react'
+import React from 'react'
 import pizzas from '../assets/pizzas.png'
 import bebidas from '../assets/bebidas.png'
 import ensaladas from '../assets/ensaladas.png'

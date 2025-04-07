@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react';
-import { View, Text, FlatList, Button, StyleSheet, Pressable, StatusBar, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import { View, Text, FlatList, StyleSheet, Pressable, StatusBar, Image} from 'react-native';
 import { useNavigation, useRoute} from '@react-navigation/native';
 import {Productimages} from '../data/map.js';
 
