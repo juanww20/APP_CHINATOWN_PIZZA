@@ -29,6 +29,7 @@ const BillScreen = () => {
   };
 
   sendWhatsApp = () => {
+    Funcion_Pagar();
     let msg = "type something";
     let phoneWithCountryCode = "";
   
@@ -61,7 +62,7 @@ const BillScreen = () => {
       <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center", fontWeight:"bold", marginTop:10}}>Facturación</Text>
       <MetodoDePago></MetodoDePago>
       <Factura cost={totalCost} billId={billId} cart={cart}></Factura>
-      <CasualButton texto="Pagar" onPress={sendWhatsApp}></CasualButton>
+      <CasualButton texto="Pagar" func={sendWhatsApp}></CasualButton>
     </View>
   );
 };
