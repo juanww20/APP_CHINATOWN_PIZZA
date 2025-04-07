@@ -23,7 +23,7 @@ export function CasualButton({ texto, func, disabled = false, estilo = {} }) {
 
 export function Dropdown({data, placeholder, onSelect}){
   return(
-    <View style={{ width: '90%', marginBottom: 10 }}>
+    <View style={{ width: '100%', marginBottom: 10, alignItems: 'center', justifyContent: 'center' }}>
       <SelectDropdown
         data={data}
         onSelect={(selectedItem) => {
