@@ -31,7 +31,7 @@ const Carrito = ({ navigation, cart, setCart }) => {
   return (
     <View style={{ flex: 1,backgroundColor:'#1A1A1A', alignItems:'center'}}>
       <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
-      <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center", fontWeight:"bold", marginTop:10}}>Lista de pedido</Text>
+      <Text style={{fontSize:20,color:'#F5F5F5', textAlign:"center", fontWeight:"bold", marginTop:10}}>Pedido</Text>
       <FlatList
         data={Object.values(cart)}
         renderItem={({ item }) => (
