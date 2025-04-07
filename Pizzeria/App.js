@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Carrito from "./Pages/Carrito"
 import Menu_general from "./Pages/menu";
-import BillScreen from './Pages/Factura';
+import BillScreen from './Pages/factura';
 import Pagina_Bienvenida from './Pages/Pagina_Bienvenida';
 import Gracias from './Pages/Gracias';
 
