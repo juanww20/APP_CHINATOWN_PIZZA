@@ -5,12 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Carrito from "./Pages/Carrito"
 import Menu_general from "./Pages/menu";
-import Pizza_ejemplo from './Pages/Pizza_ejemplo';
 import BillScreen from './Pages/Factura';
 import Pagina_Bienvenida from './Pages/Pagina_Bienvenida';
-import Bebida_ejemplo from './Pages/Bebida_ejemplo';
-import Postre_ejemplo from './Pages/Postre_ejemplo';
-import Adicional_ejemplo from './Pages/Adicional_ejemplo';
 import Gracias from './Pages/Gracias';
 
 const Tab = createBottomTabNavigator();
@@ -26,18 +22,6 @@ export default function App() {
         <Stack.Screen name="Welcome" component={Pagina_Bienvenida} options={{headerShown:false}} />
         <Stack.Screen name="Menu_general" options={{headerShown:false}}>        
           {(props) => <Menu_general {...props} cart={cart} setCart={setCart} />}
-        </Stack.Screen>
-        <Stack.Screen name="Pizza_ejemplo" options={{headerShown:false}}>        
-          {(props) => <Pizza_ejemplo {...props} cart={cart} setCart={setCart} />}
-        </Stack.Screen>
-        <Stack.Screen name="Bebida_ejemplo" options={{headerShown:false}}>        
-          {(props) => <Bebida_ejemplo {...props} cart={cart} setCart={setCart} />}
-        </Stack.Screen>
-        <Stack.Screen name="Postre_ejemplo" options={{headerShown:false}}>        
-          {(props) => <Postre_ejemplo {...props} cart={cart} setCart={setCart} />}
-        </Stack.Screen>
-        <Stack.Screen name="Adicional_ejemplo" options={{headerShown:false}}>        
-          {(props) => <Adicional_ejemplo {...props} cart={cart} setCart={setCart} />}
         </Stack.Screen>
         <Stack.Screen name="Carrito" options={{headerShown:false}}>        
           {(props) => <Carrito {...props} cart={cart} setCart={setCart} />}
