@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import { View, Text, Linking, Platform, StatusBar } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAndIncrementBillId } from '../functions/billIdManager';
 import { Factura, MetodoDePago } from '../components/factura';
 import { CasualButton } from '../components/generals';
+import { generateInvoiceMessage } from '../functions/formatMessage';
+import { sendWhatsApp } from '../functions/sendWhatsApp';
+import { Dropdown } from '../components/generals';
 
 const BillScreen = () => {
   const route = useRoute();
@@ -13,8 +16,15 @@ const BillScreen = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null); // Estado para el método de pago
 
   const Funcion_Pagar = () => {
+    // First validate if payment method is selected
+    if (!selectedPaymentMethod) {
+      alert('Por favor selecciona un método de pago');
+      return;
+    }
+
     alert('感谢购买! Gracias por la compra!');
 
+    // Reset cart and navigate
     navigation.reset({
       routes: [{ name: 'Carrito', params: { cart: {} } }],
     });
@@ -26,30 +36,10 @@ const BillScreen = () => {
     setTimeout(() => {
       navigation.navigate('Welcome');
     }, 5000);
-  };
 
-  const sendWhatsApp = () => { // Corregido: declaración correcta
-    Funcion_Pagar();
-    let msg = "type something";
-    let phoneWithCountryCode = "";
-  
-    let mobile = Platform.OS == "ios" ? phoneWithCountryCode : "+" + phoneWithCountryCode;
-    if (mobile) {
-      if (msg) {
-        let url = "whatsapp://send?text=" + msg + "&phone=" + mobile;
-        Linking.openURL(url)
-          .then(data => {
-            console.log("WhatsApp Opened");
-          })
-          .catch(() => {
-            alert("Make sure WhatsApp installed on your device");
-          });
-      } else {
-        alert("Please insert message to send");
-      }
-    } else {
-      alert("Please insert mobile no");
-    }
+    // Generate and send WhatsApp message
+    const message = generateInvoiceMessage(clientInfo, billId, cart, selectedPaymentMethod);
+    sendWhatsApp(message);
   };
 
   // Validación para cart vacío o undefined
@@ -61,9 +51,13 @@ const BillScreen = () => {
     <View style={{ height: '100%', backgroundColor: '#1A1A1A', alignItems: 'center', justifyContent: 'space-between' }}>
       <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
       <Text style={{ fontSize: 20, color: '#F5F5F5', textAlign: "center", fontWeight: "bold", marginTop: 10 }}>Facturación</Text>
-      <MetodoDePago onSelect={setSelectedPaymentMethod} />
+      <Dropdown 
+        data={[{ title: 'Pago Móvil' }, { title: 'Efectivo' }]}
+        placeholder={'Método de Pago'}
+        onSelect={(item) => setSelectedPaymentMethod(item.title)} // Extrae el título aquí
+      />
       <Factura cost={totalCost} billId={billId} cart={cart} clientInfo={clientInfo}/>
-      <CasualButton texto="Pagar" func={sendWhatsApp} disabled={!selectedPaymentMethod} estilo={{ opacity: selectedPaymentMethod ? 1 : 0.5 }} />
+      <CasualButton texto="Pagar" func={Funcion_Pagar} disabled={!selectedPaymentMethod} estilo={{ opacity: selectedPaymentMethod ? 1 : 0.5 }} />
     </View>
   );
 };
