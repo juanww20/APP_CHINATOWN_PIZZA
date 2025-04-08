@@ -27,6 +27,7 @@ const Carrito = ({ navigation, cart, setCart }) => {
   };
 
   const totalCost = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const isCartEmpty = Object.keys(cart).length === 0;
 
   return (
     <View style={{ flex: 1,backgroundColor:'#1A1A1A', alignItems:'center'}}>
@@ -57,10 +58,14 @@ const Carrito = ({ navigation, cart, setCart }) => {
       />
       <Text style={{ padding: 10, fontSize: 20, color: '#F5F5F5', borderTopWidth: 1, borderTopColor:'#F5F5F5'}}>Total: ${totalCost}</Text>
       <View style={{ flexDirection: 'row', justifyContent: 'center', padding: 10, width: '50%', gap: 10}}>
-        <Pressable onPress={Eliminar_todos} style={styles.boton}>
+        <Pressable onPress={Eliminar_todos} style={[styles.boton, isCartEmpty && { opacity: 0.5 }]} disabled={isCartEmpty}>
           <Text style={{color:'#F5F5F5'}}>Limpiar</Text>
         </Pressable>
-        <Pressable onPress={Funcion_Pasar_Form} style={styles.boton}>
+        <Pressable 
+          onPress={Funcion_Pasar_Form} 
+          style={[styles.boton, isCartEmpty && { opacity: 0.5 }]} 
+          disabled={isCartEmpty}
+        >
           <Text style={{color:'#F5F5F5'}}>Confirmar</Text>
         </Pressable>
       </View>
