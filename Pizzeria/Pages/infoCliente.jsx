@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, StatusBar } from 'react-native';
 import { CasualButton, Dropdown } from '../components/generals';
 import { InputForm } from '../components/infoCliente';
 import Zonas from '../data/Zonas.json';
 import useFormValidation from '../functions/FormValidation';
 import { validateOrderForm } from '../functions/formValidationRules';
+import { useNavigation, useRoute} from '@react-navigation/native';
 
 export default function InfoCliente({ navigation, cart, setCart }) {
+    const route = useRoute();
+    
     const {
         formData,
         errors,
@@ -44,14 +47,11 @@ export default function InfoCliente({ navigation, cart, setCart }) {
     const handleSubmit = () => {
         if (isFormValid) {
             console.log('Datos válidos:', formData);
-            // Lógica para procesar la orden
+            navigation.navigate('Bill', { cart });
         } else {
             console.log('Errores en el formulario:', errors);
         }
     };
-
-    // Debug: Mostrar el estado actual (puedes eliminarlo después)
-    console.log('Estado actual:', formData);
 
     return (
         <View style={{ flex: 1, backgroundColor: '#1A1A1A', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -115,7 +115,7 @@ export default function InfoCliente({ navigation, cart, setCart }) {
             </View>
             <CasualButton 
                 texto={'Facturar'} 
-                onPress={handleSubmit} 
+                func={handleSubmit} 
                 disabled={!isFormValid} 
                 estilo={{ opacity: isFormValid ? 1 : 0.5 }}
             />

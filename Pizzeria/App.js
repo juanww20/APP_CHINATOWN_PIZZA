@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Carrito from "./Pages/Carrito";
 import Menu_general from "./Pages/menu";
@@ -9,39 +8,47 @@ import Pagina_Bienvenida from "./Pages/Pagina_Bienvenida";
 import Gracias from "./Pages/Gracias";
 import InfoCliente from "./Pages/infoCliente";
 
-const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+// Componente para pasar props consistentemente
+const ScreenWrapper = ({ component: Component, cart, setCart, ...props }) => (
+  <Component {...props} cart={cart} setCart={setCart} />
+);
 
 export default function App() {
   const [cart, setCart] = useState({});
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ gestureEnabled: false }}>
-        <Stack.Screen
-          name="Welcome"
-          component={Pagina_Bienvenida}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Menu_general" options={{ headerShown: false }}>
-          {(props) => <Menu_general {...props} cart={cart} setCart={setCart} />}
+      <Stack.Navigator 
+        screenOptions={{ 
+          gestureEnabled: false,
+          headerShown: false,
+          animation: "fade" 
+        }}
+        initialRouteName="Welcome"
+      >
+        <Stack.Screen name="Welcome" component={Pagina_Bienvenida} />
+        
+        <Stack.Screen name="Menu_general">
+          {(props) => <ScreenWrapper {...props} component={Menu_general} cart={cart} setCart={setCart} />}
         </Stack.Screen>
-        <Stack.Screen name="Carrito" options={{ headerShown: false }}>
-          {(props) => <Carrito {...props} cart={cart} setCart={setCart} />}
+        
+        <Stack.Screen name="Carrito">
+          {(props) => <ScreenWrapper {...props} component={Carrito} cart={cart} setCart={setCart} />}
         </Stack.Screen>
-        <Stack.Screen
-          name="Bill"
-          component={BillScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Gracias" options={{ headerShown: false }}>
-          {(props) => <Gracias {...props} cart={cart} setCart={setCart} />}
+        
+        <Stack.Screen name="Bill">
+          {(props) => <ScreenWrapper {...props} component={BillScreen} cart={cart} setCart={setCart} />}
         </Stack.Screen>
-        <Stack.Screen
-          name="InfoCliente"
-          component={InfoCliente}
-          options={{ headerShown: false }}
-        />
+        
+        <Stack.Screen name="Gracias">
+          {(props) => <ScreenWrapper {...props} component={Gracias} cart={cart} setCart={setCart} />}
+        </Stack.Screen>
+        
+        <Stack.Screen name="InfoCliente">
+          {(props) => <ScreenWrapper {...props} component={InfoCliente} cart={cart} setCart={setCart} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

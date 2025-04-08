@@ -23,7 +23,7 @@ const Carrito = ({ navigation, cart, setCart }) => {
   };
 
   const Funcion_Pasar_Form = () => {
-    navigation.navigate('InfoCliente'); // <--- Quita { cart }, ya que lo pasas por props
+    navigation.navigate('InfoCliente', { cart });
   };
 
   const totalCost = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
