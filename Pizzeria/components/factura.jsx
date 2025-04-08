@@ -31,7 +31,7 @@ export function Factura({ cost, billId, cart, clientInfo }) {
       </View>
   );
 }
-export function MetodoDePago({}){
+export function MetodoDePago({ onSelect}){
     const emojisWithIcons = [
         {title: 'Pago Movil'},
         {title: 'Efectivo'},
@@ -41,7 +41,10 @@ export function MetodoDePago({}){
         data={emojisWithIcons}
         onSelect={(selectedItem, index) => {
           console.log(selectedItem, index);
-        }}
+          if (onSelect) {
+              onSelect(selectedItem.title); // Llama al callback con el método seleccionado
+          }
+      }}
         renderButton={(selectedItem, isOpened) => {
           return (
             <View style={styles.dropdownButtonStyle}>

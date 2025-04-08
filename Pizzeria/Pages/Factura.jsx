@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, Linking, Platform, StatusBar } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAndIncrementBillId } from '../functions/billIdManager';
@@ -10,6 +10,7 @@ const BillScreen = () => {
   const navigation = useNavigation();
   const { cart = {}, clientInfo = {} } = route.params || {}; // Agrega clientInfo
   const billId = getAndIncrementBillId();
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null); // Estado para el método de pago
 
   const Funcion_Pagar = () => {
     alert('感谢购买! Gracias por la compra!');
@@ -60,9 +61,9 @@ const BillScreen = () => {
     <View style={{ height: '100%', backgroundColor: '#1A1A1A', alignItems: 'center', justifyContent: 'space-between' }}>
       <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
       <Text style={{ fontSize: 20, color: '#F5F5F5', textAlign: "center", fontWeight: "bold", marginTop: 10 }}>Facturación</Text>
-      <MetodoDePago />
+      <MetodoDePago onSelect={setSelectedPaymentMethod} />
       <Factura cost={totalCost} billId={billId} cart={cart} clientInfo={clientInfo}/>
-      <CasualButton texto="Pagar" func={sendWhatsApp} />
+      <CasualButton texto="Pagar" func={sendWhatsApp} disabled={!selectedPaymentMethod} estilo={{ opacity: selectedPaymentMethod ? 1 : 0.5 }} />
     </View>
   );
 };
