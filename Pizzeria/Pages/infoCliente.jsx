@@ -46,7 +46,6 @@ export default function InfoCliente({ navigation, cart }) {
 
     const handleSubmit = () => {
         if (isFormValid) {
-            console.log('Datos válidos:', formData);
             navigation.navigate('Bill', { 
                 cart,
                 clientInfo: { // Agrega esta nueva prop
@@ -59,7 +58,7 @@ export default function InfoCliente({ navigation, cart }) {
                 }
             });
         } else {
-            console.log('Errores en el formulario:', errors);
+            alert('Error: Faltan campos por completar o son inválidos.');
         }
     };
 
