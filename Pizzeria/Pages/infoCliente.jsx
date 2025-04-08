@@ -7,7 +7,7 @@ import useFormValidation from '../functions/FormValidation';
 import { validateOrderForm } from '../functions/formValidationRules';
 import { useNavigation, useRoute} from '@react-navigation/native';
 
-export default function InfoCliente({ navigation, cart, setCart }) {
+export default function InfoCliente({ navigation, cart }) {
     const route = useRoute();
     
     const {
