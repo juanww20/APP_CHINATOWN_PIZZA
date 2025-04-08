@@ -8,7 +8,7 @@ import { CasualButton } from '../components/generals';
 const BillScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const { cart = {} } = route.params || {}; // Validación para cart
+  const { cart = {}, clientInfo = {} } = route.params || {}; // Agrega clientInfo
   const billId = getAndIncrementBillId();
 
   const Funcion_Pagar = () => {
@@ -61,7 +61,7 @@ const BillScreen = () => {
       <StatusBar barStyle="light-content" backgroundColor="#1A1A1A" />
       <Text style={{ fontSize: 20, color: '#F5F5F5', textAlign: "center", fontWeight: "bold", marginTop: 10 }}>Facturación</Text>
       <MetodoDePago />
-      <Factura cost={totalCost} billId={billId} cart={cart} />
+      <Factura cost={totalCost} billId={billId} cart={cart} clientInfo={clientInfo}/>
       <CasualButton texto="Pagar" func={sendWhatsApp} />
     </View>
   );

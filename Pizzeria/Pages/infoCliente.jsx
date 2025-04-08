@@ -47,7 +47,17 @@ export default function InfoCliente({ navigation, cart }) {
     const handleSubmit = () => {
         if (isFormValid) {
             console.log('Datos válidos:', formData);
-            navigation.navigate('Bill', { cart });
+            navigation.navigate('Bill', { 
+                cart,
+                clientInfo: { // Agrega esta nueva prop
+                    orden: formData.tipoOrden,
+                    nombre: formData.nombre,
+                    telefono: formData.telefono,
+                    ubicacion: formData.tipoOrden === 'Delivery' 
+                        ? `${formData.direccion}, ${formData.zona} (${formData.referencia})`
+                        : 'Recoger en local'
+                }
+            });
         } else {
             console.log('Errores en el formulario:', errors);
         }
