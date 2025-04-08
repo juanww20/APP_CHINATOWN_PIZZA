@@ -21,16 +21,12 @@ export function CasualButton({ texto, func, disabled = false, estilo = {} }) {
   );
 }
 
-export function Dropdown({data, placeholder, onSelect}){
-  return(
+export function Dropdown({ data, placeholder, onSelect }) {
+  return (
     <View style={{ width: '100%', marginBottom: 10, alignItems: 'center', justifyContent: 'center' }}>
       <SelectDropdown
         data={data}
-        onSelect={(selectedItem) => {
-          if (onSelect) {
-            onSelect(selectedItem.title);
-          }
-        }}
+        onSelect={onSelect}
         renderButton={(selectedItem, isOpened) => {
           return (
             <View style={styles.dropdownButtonStyle}>
@@ -58,8 +54,9 @@ export function Dropdown({data, placeholder, onSelect}){
         dropdownStyle={styles.dropdownMenuStyle}
       />
     </View>
-  )
+  );
 }
+
 
 const styles = StyleSheet.create({
     boton:{

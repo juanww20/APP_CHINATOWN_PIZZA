@@ -6,42 +6,52 @@ import Zonas from '../data/Zonas.json';
 import useFormValidation from '../functions/FormValidation';
 import { validateOrderForm } from '../functions/formValidationRules';
 
-
 export default function InfoCliente({ navigation, cart, setCart }) {
     const {
         formData,
+        errors,
         isFormValid,
         handleInputChange,
         handleDropdownChange,
-        touched,
-        setTouched,
+        setFormData,
     } = useFormValidation(
-    {
-        nombre: '',
-        telefono: '',
-        tipoOrden: '',
-        direccion: '',
-        referencia: '',
-        zona: '',
-    },
-    validateOrderForm
+        {
+            nombre: '',
+            telefono: '',
+            tipoOrden: '',
+            direccion: '',
+            referencia: '',
+            zona: '',
+        },
+        validateOrderForm
     );
 
+    // Función modificada para manejar el cambio de tipo de orden
     const handleTipoOrdenChange = (item) => {
-        handleInputChange('tipoOrden', item.title);
-    };
-
-    const handleZonaChange = (item) => {
-        handleInputChange('zona', item);
+        const tipo = item?.title || '';
+        setFormData(prev => ({
+            ...prev,
+            tipoOrden: tipo,
+            // Limpiamos los campos si no es Delivery
+            ...(tipo !== 'Delivery' && {
+                direccion: '',
+                referencia: '',
+                zona: ''
+            })
+        }));
     };
 
     const handleSubmit = () => {
         if (isFormValid) {
             console.log('Datos válidos:', formData);
-            // Aquí iría la lógica para procesar la orden
-            // navigation.navigate('SiguientePantalla');
+            // Lógica para procesar la orden
+        } else {
+            console.log('Errores en el formulario:', errors);
         }
     };
+
+    // Debug: Mostrar el estado actual (puedes eliminarlo después)
+    console.log('Estado actual:', formData);
 
     return (
         <View style={{ flex: 1, backgroundColor: '#1A1A1A', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -51,12 +61,13 @@ export default function InfoCliente({ navigation, cart, setCart }) {
             </Text>
 
             <View style={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            <Dropdown 
-                data={[{ "title": "Delivery" }, { "title": "Pick-Up" }]}
-                placeholder={'Tipo de Orden'}
-                onSelect={(value) => handleDropdownChange('tipoOrden', value)}
-                value={formData.tipoOrden}
-            />
+                <Dropdown 
+                    data={[{ title: 'Delivery' }, { title: 'Pickup' }]}
+                    placeholder={'Tipo de Orden'}
+                    onSelect={handleTipoOrdenChange}
+                    value={formData.tipoOrden ? { title: formData.tipoOrden } : null}
+                    error={errors.tipoOrden}
+                />
 
                 <Text style={{ fontSize: 16, color: '#F5F5F5', textAlign: 'left', fontWeight: '400', marginTop: 10, width: '90%' }}>
                     Información de Cliente
@@ -65,30 +76,49 @@ export default function InfoCliente({ navigation, cart, setCart }) {
                     placeholder={'Nombre'}
                     teclado={'default'}
                     onChangeText={(text) => handleInputChange('nombre', text)}
-                >
                     value={formData.nombre}
-                </InputForm>
+                />
                 <InputForm
                     placeholder={'Telefono (04XX-XXXXXXX)'}
                     teclado={'numeric'}
                     onChangeText={(text) => handleInputChange('telefono', text)}
-                >
                     value={formData.telefono}
-                </InputForm>
-
-                <Text style={{ fontSize: 16, color: '#F5F5F5', textAlign: 'left', fontWeight: '400', marginTop: 10, width: '90%' }}>
-                    Información de Entrega
-                </Text>
-                <InputForm placeholder={'Calle/Av/Urb'} teclado={'default'} />
-                <InputForm placeholder={'Referencias (¿Cómo llegar?)'} teclado={'default'} />
-                <Dropdown 
-                data={Zonas}
-                placeholder={'Zona de Entrega'}
-                onSelect={(value) => handleDropdownChange('zona', value)}
-                value={formData.zona}
                 />
+
+                {/* Renderizado condicional mejorado */}
+                {formData.tipoOrden === 'Delivery' ? (
+                    <View style={{ width: '100%', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, color: '#F5F5F5', textAlign: 'left', fontWeight: '400', marginTop: 10, width: '90%' }}>
+                            Información de Entrega
+                        </Text>
+                        <InputForm
+                            placeholder={'Calle/Av/Urb'}
+                            teclado={'default'}
+                            onChangeText={(text) => handleInputChange('direccion', text)}
+                            value={formData.direccion}
+                        />
+                        <InputForm
+                            placeholder={'Referencias (¿Cómo llegar?)'}
+                            teclado={'default'}
+                            onChangeText={(text) => handleInputChange('referencia', text)}
+                            value={formData.referencia}
+                        />
+                        <Dropdown 
+                            data={Zonas}
+                            placeholder={'Zona de Entrega'}
+                            onSelect={(item) => handleDropdownChange('zona', item.title)}
+                            value={formData.zona}
+                            error={errors.zona}
+                        />
+                    </View>
+                ) : null}
             </View>
-            <CasualButton texto={'Facturar'} func={handleSubmit} disabled={!isFormValid} estilo={{ opacity: isFormValid ? 1 : 0.5 }}/>
+            <CasualButton 
+                texto={'Facturar'} 
+                onPress={handleSubmit} 
+                disabled={!isFormValid} 
+                estilo={{ opacity: isFormValid ? 1 : 0.5 }}
+            />
         </View>
     );
 }
