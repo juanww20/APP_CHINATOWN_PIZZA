@@ -4,6 +4,7 @@
 Una aplicación moderna, intuitiva y 100% frontend para que explores el delicioso menú de pizzas de forma rápida y atractiva.
 
 <img width="50%" src="Pizzeria/assets/logo.png">
+
 ---
 
 ## 📦 Instalación y Ejecución
